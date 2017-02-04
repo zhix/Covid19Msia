@@ -8,8 +8,8 @@ import time
 
 # if you haven't had an app_id, sign up one here: https://developers.facebook.com/apps
 
-app_id = "1794678177523862"
-app_secret = "34e6aa4a65d9cdfc427a115eae2cbccd" # DO NOT SHARE WITH ANYONE!
+app_id = "1794678____12"
+app_secret = "34e6______d9fc4______d" # DO NOT SHARE WITH ANYONE!
 
 access_token = app_id + "|" + app_secret
 
