@@ -1,16 +1,13 @@
-# facebookScrape
+# Covid19 Analysis in Malaysia
 
-## Objective of this Scraper is:
+## Objectives of this Analysis are:
 
-1) Monitor all the posts on Webe Community with #webemakers hashtags
+1) To serve as an objective tool for education on Covid19 pandemic in Malaysia 
 
-2) Obtain all the posts' Likes and Shares numbers
+2) To shed some insights to the current Covid19 situation
 
-3) Turn those numbers into amount of LEDs light up (our target is 10,000 Likes)
+## Publishing 
+Our analysis is published here: https://medium.com/@makeracademy
 
-## Reference
-1) http://minimaxir.com/2015/07/facebook-scraper/
-
-2) https://github.com/minimaxir/facebook-page-post-scraper 
-
-3) Getting the Facebook Developer account for App ID and Token: https://developers.facebook.com/ 
+Tracker 1 here: https://docs.google.com/spreadsheets/d/1Qew2IsSQtkQbF78zJ_FQZqAd3psR1rDtj4bXLaGb0z4/edit#gid=1835503117
+Tracker 2 here: https://docs.google.com/spreadsheets/d/1bVaBMrPhaCgqp2LVZgMFeWFK-SC5ymqOg4yEkY3em14/edit#gid=1455725584
