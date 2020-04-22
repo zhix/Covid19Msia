@@ -1,0 +1,206 @@
+##,World,Population,Column ,CountrySize
+1,Afghanistan,"38,928,346",C,B
+2,Albania,"2,877,797",D,C
+3,Algeria,"43,851,044",E,B
+4,Andorra,"77,265",F,C
+5,Angola,"32,866,272",G,B
+6,Anguilla,"15,003",H,C
+7,Antigua and Barbuda,"97,929",I,C
+8,Argentina,"45,195,774",J,B
+9,Armenia,"2,963,243",K,C
+10,Aruba,"106,766",L,C
+11,Australia,"25,499,884",M,B
+12,Austria,"9,006,398",N,B
+13,Azerbaijan,"10,139,177",O,B
+14,Bahamas,"393,244",P,C
+15,Bahrain,"1,701,575",Q,C
+16,Bangladesh,"164,689,383",R,A
+17,Barbados,"287,375",S,C
+18,Belarus,"9,449,323",T,B
+19,Belgium,"11,589,623",U,B
+20,Belize,"397,628",V,C
+21,Benin,"12,123,200",W,B
+22,Bermuda,"62,278",X,C
+23,Bhutan,"771,608",Y,C
+24,Bolivia,"11,673,021",Z,B
+25,Bonaire Sint Eustatius and Saba,"11,673,021",AA,B
+26,Bosnia and Herzegovina,"3,280,819",AB,C
+27,Botswana,"2,351,627",AC,C
+28,Brazil,"212,559,417",AD,A
+29,British Virgin Islands,"30,231",AE,C
+30,Brunei,"437,479",AF,C
+31,Bulgaria,"6,948,445",AG,B
+32,Burkina Faso,"20,903,273",AH,B
+33,Burundi,"11,890,784",AI,B
+34,Cambodia,"16,718,965",AJ,B
+35,Cameroon,"26,545,863",AK,B
+36,Canada,"37,742,154",AL,B
+37,Cape Verde,"37,742,154",AM,B
+38,Cayman Islands,"65,722",AN,C
+39,Central African Republic,"4,829,767",AO,C
+40,Chad,"16,425,864",AP,B
+41,Chile,"19,116,201",AQ,B
+42,China,"1,439,323,776",AR,A
+43,Colombia,"50,882,891",AS,A
+44,Congo,"5,518,087",AT,B
+45,Costa Rica,"5,094,118",AU,B
+46,Cote d'Ivoire,"5,094,118",AV,B
+47,Croatia,"4,105,267",AW,C
+48,Cuba,"26,378,274",AX,B
+49,Curacao,"26,378,274",AY,B
+50,Cyprus,"26,378,274",AZ,B
+51,Czech Republic,"26,378,274",BA,B
+52,Democratic Republic of Congo,"26,378,274",BB,B
+53,Denmark,"5,792,202",BC,B
+54,Djibouti,"988,000",BD,C
+55,Dominica,"71,986",BE,C
+56,Dominican Republic,"10,847,910",BF,B
+57,Ecuador,"17,643,054",BG,B
+58,Egypt,"102,334,404",BH,A
+59,El Salvador,"6,486,205",BI,B
+60,Equatorial Guinea,"1,402,985",BJ,C
+61,Eritrea,"3,546,421",BK,C
+62,Estonia,"1,326,535",BL,C
+63,Ethiopia,"114,963,588",BM,A
+64,Faeroe Islands,"48,863",BN,C
+65,Falkland Islands,"3,480",BO,C
+66,Fiji,"896,445",BP,C
+67,Finland,"5,540,720",BQ,B
+68,France,"65,273,511",BR,A
+69,French Polynesia,"280,908",BS,C
+70,Gabon,"2,225,734",BT,C
+71,Gambia,"2,416,668",BU,C
+72,Georgia,"3,989,167",BV,C
+73,Germany,"83,783,942",BW,A
+74,Ghana,"31,072,940",BX,B
+75,Gibraltar,"33,691",BY,C
+76,Greece,"10,423,054",BZ,B
+77,Greenland,"56,770",CA,C
+78,Grenada,"112,523",CB,C
+79,Guam,"168,775",CC,C
+80,Guatemala,"17,915,568",CD,B
+81,Guernsey,"17,915,568",CE,B
+82,Guinea,"13,132,795",CF,B
+83,Guinea-Bissau,"1,968,001",CG,C
+84,Guyana,"786,552",CH,C
+85,Haiti,"11,402,528",CI,B
+86,Honduras,"9,904,607",CJ,B
+87,Hungary,"9,660,351",CK,B
+88,Iceland,"341,243",CL,C
+89,India,"1,380,004,385",CM,A
+90,Indonesia,"273,523,615",CN,A
+91,International,"273,523,615",CO,A
+92,Iran,"83,992,949",CP,A
+93,Iraq,"40,222,493",CQ,B
+94,Ireland,"4,937,786",CR,C
+95,Isle of Man,"85,033",CS,C
+96,Israel,"8,655,535",CT,B
+97,Italy,"60,461,826",CU,A
+98,Jamaica,"2,961,167",CV,C
+99,Japan,"126,476,461",CW,A
+100,Jersey,"126,476,461",CX,A
+101,Jordan,"10,203,134",CY,B
+102,Kazakhstan,"18,776,707",CZ,B
+103,Kenya,"53,771,296",DA,A
+104,Kosovo,"119,449",DB,C
+105,Kuwait,"4,270,571",DC,C
+106,Kyrgyzstan,"6,524,195",DD,B
+107,Laos,"7,275,560",DE,B
+108,Latvia,"1,886,198",DF,C
+109,Lebanon,"6,825,445",DG,B
+110,Liberia,"5,057,681",DH,B
+111,Libya,"6,871,292",DI,B
+112,Liechtenstein,"38,128",DJ,C
+113,Lithuania,"2,722,289",DK,C
+114,Luxembourg,"625,978",DL,C
+115,Macedonia,"649,335",DM,C
+116,Madagascar,"27,691,018",DN,B
+117,Malawi,"19,129,952",DO,B
+118,Malaysia,"32,365,999",DP,B
+119,Maldives,"540,544",DQ,C
+120,Mali,"20,250,833",DR,B
+121,Malta,"441,543",DS,C
+122,Mauritania,"4,649,658",DT,C
+123,Mauritius,"1,271,768",DU,C
+124,Mexico,"128,932,753",DV,A
+125,Moldova,"4,033,963",DW,C
+126,Monaco,"39,242",DX,C
+127,Mongolia,"3,278,290",DY,C
+128,Montenegro,"628,066",DZ,C
+129,Montserrat,"4,992",EA,C
+130,Morocco,"36,910,560",EB,B
+131,Mozambique,"31,255,435",EC,B
+132,Myanmar,"54,409,800",ED,A
+133,Namibia,"2,540,905",EE,C
+134,Nepal,"29,136,808",EF,B
+135,Netherlands,"17,134,872",EG,B
+136,New Caledonia,"285,498",EH,C
+137,New Zealand,"4,822,233",EI,C
+138,Nicaragua,"6,624,554",EJ,B
+139,Niger,"24,206,644",EK,B
+140,Nigeria,"206,139,589",EL,A
+141,Northern Mariana Islands,"57,559",EM,C
+142,Norway,"5,421,241",EN,B
+143,Oman,"5,106,626",EO,B
+144,Pakistan,"220,892,340",EP,A
+145,Palestine,"18,094",EQ,C
+146,Panama,"4,314,767",ER,C
+147,Papua New Guinea,"8,947,024",ES,B
+148,Paraguay,"7,132,538",ET,B
+149,Peru,"32,971,854",EU,B
+150,Philippines,"109,581,078",EV,A
+151,Poland,"37,846,611",EW,B
+152,Portugal,"10,196,709",EX,B
+153,Puerto Rico,"2,860,853",EY,C
+154,Qatar,"2,881,053",EZ,C
+155,Romania,"895,312",FA,C
+156,Russia,"895,312",FB,C
+157,Rwanda,"895,312",FC,C
+158,Saint Kitts and Nevis,"53,199",FD,C
+159,Saint Lucia,"183,627",FE,C
+160,Saint Vincent and the Grenadines,"5,794",FF,C
+161,San Marino,"33,931",FG,C
+162,Sao Tome and Principe,"219,159",FH,C
+163,Saudi Arabia,"34,813,871",FI,B
+164,Senegal,"16,743,927",FJ,B
+165,Serbia,"8,737,371",FK,B
+166,Seychelles,"98,347",FL,C
+167,Sierra Leone,"7,976,983",FM,B
+168,Singapore,"5,850,342",FN,B
+169,Sint Maarten (Dutch part),"42,876",FO,C
+170,Slovakia,"5,459,642",FP,B
+171,Slovenia,"2,078,938",FQ,C
+172,Somalia,"15,893,222",FR,B
+173,South Africa,"59,308,690",FS,A
+174,South Korea,"51,269,185",FT,A
+175,South Sudan,"11,193,725",FU,B
+176,Spain,"46,754,778",FV,B
+177,Sri Lanka,"21,413,249",FW,B
+178,Sudan,"43,849,260",FX,B
+179,Suriname,"586,632",FY,C
+180,Swaziland,"586,632",FZ,C
+181,Sweden,"10,099,265",GA,B
+182,Switzerland,"8,654,622",GB,B
+183,Syria,"17,500,658",GC,B
+184,Taiwan,"23,816,775",GD,B
+185,Tanzania,"59,734,218",GE,A
+186,Thailand,"69,799,978",GF,A
+187,Timor,"69,799,978",GG,A
+188,Togo,"8,278,724",GH,B
+189,Trinidad and Tobago,"1,399,488",GI,C
+190,Tunisia,"11,818,619",GJ,B
+191,Turkey,"84,339,067",GK,A
+192,Turks and Caicos Islands,"38,717",GL,C
+193,Uganda,"45,741,007",GM,B
+194,Ukraine,"43,733,762",GN,B
+195,United Arab Emirates,"9,890,402",GO,B
+196,United Kingdom,"67,886,011",GP,A
+197,United States,"331,002,651",GQ,A
+198,United States Virgin Islands,"331,002,651",GR,A
+199,Uruguay,"3,473,730",GS,C
+200,Uzbekistan,"33,469,203",GT,B
+201,Vatican,"307,145",GU,C
+202,Venezuela,"28,435,940",GV,B
+203,Vietnam,"97,338,579",GW,A
+204,Zambia,"18,383,955",GX,B
+205,Zimbabwe,"14,862,924",GY,B
