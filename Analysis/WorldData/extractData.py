@@ -4,8 +4,8 @@ import pandas as pd
 import random
 
 def extractData(): 
-	accumFile = "accumCasesFromDay1.csv"
-	newFile = "newCasesFromDay1.csv"
+	accumFile = "accumCasesFromDay12.csv"
+	newFile = "newCasesFromDay12.csv"
 
 
 	accumData = pd.read_csv(accumFile)
@@ -26,7 +26,7 @@ def getDays():
 	return numDays
 
 def extractCountriesPopulation():
-	populationFile = "populationRef3.csv" 
+	populationFile = "populationRef4.csv" 
 	populations = pd.read_csv(populationFile)
 	return populations
 
@@ -45,23 +45,50 @@ def getColor(anyInt):
 	return color
 
 
-def randomCountriesBasedonSize(numberOfCountries, size=["A","B","C"], randomOrNot = True, listRequired = ["Malaysia"]):
+def randomCountriesBasedonSize(numberOfCountries, 
+	size=["A","B","C"], 
+	randomOrNot = True, 
+	listAddition = [], 
+	listRemoval = [],
+	listRequired = ["Malaysia"]):
 	
+	# print(listAddition)
+
 	df = extractCountriesPopulation()
-	countriesA = df.loc[df["CountrySize"]=="A",["World"]]
-	countriesB = df.loc[df["CountrySize"]=="B",["World"]]
-	countriesC = df.loc[df["CountrySize"]=="C",["World"]]
-	# print(countriesA)
-	# randA = random.choice(countriesA["World"].tolist())
+	countriesA = df.loc[df["CountrySize"]=="A",["World"]]["World"].tolist()
+	countriesB = df.loc[df["CountrySize"]=="B",["World"]]["World"].tolist()
+	countriesC = df.loc[df["CountrySize"]=="C",["World"]]["World"].tolist()
+	
+	listOfA = []
+	listOfB = []
+	listOfC = []
 
-	randSampleNumberA = random.sample(range(len(countriesA)), numberOfCountries)
-	listOfA = [countriesA["World"].tolist()[i] for i in randSampleNumberA]
+	for country in listAddition: 
+		# print(country)
+		if country in countriesA:
+			listOfA.append(country)
+		elif country in countriesB:
+			listOfB.append(country)
+		elif country in countriesC:
+			listOfC.append(country)
+	# print(listOfA, listOfB, listOfC)
 
-	randSampleNumberB = random.sample(range(len(countriesB)), numberOfCountries)
-	listOfB = [countriesB["World"].tolist()[i] for i in randSampleNumberB]
+	if numberOfCountries > len(listOfA):
+		randSampleNumberA = random.sample(range(len(countriesA)), numberOfCountries-len(listOfA))
+		listOfA = listOfA + [countriesA[i] for i in randSampleNumberA]
+		listOfA = list(dict.fromkeys(listOfA))
 
-	randSampleNumberC = random.sample(range(len(countriesC)), numberOfCountries)
-	listOfC = [countriesC["World"].tolist()[i] for i in randSampleNumberC]	
+	if numberOfCountries > len(listOfB):
+		randSampleNumberB = random.sample(range(len(countriesB)), numberOfCountries-len(listOfB))
+		listOfB = listOfB + [countriesB[i] for i in randSampleNumberB]
+		listOfB = list(dict.fromkeys(listOfB))
+
+	if numberOfCountries > len(listOfC):
+		randSampleNumberC = random.sample(range(len(countriesC)), numberOfCountries-len(listOfC))
+		listOfC = listOfC + [countriesC[i] for i in randSampleNumberC]	
+		listOfC = list(dict.fromkeys(listOfC))
+
+
 
 	if "A" not in size: 
 		listOfA=[]
@@ -74,6 +101,14 @@ def randomCountriesBasedonSize(numberOfCountries, size=["A","B","C"], randomOrNo
 		listOfA=[]
 		listOfB=[]
 		listOfC=[]
+
+	for country in listRemoval:
+		if country in listOfA:
+			listOfA.remove(country)
+		elif country in listOfB:
+			listOfB.remove(country)
+		elif country in listOfC:
+			listOfC.remove(country)
 	
 	return listOfA, listOfB, listOfC, listRequired
 

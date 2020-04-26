@@ -3,8 +3,27 @@
 import plotly.graph_objects as go
 from extractData import * 
 
+selectedCountries = ["Australia",
+                    # "Italy",
+                    "Japan",
+                    "Singapore",
+                    "Norway",  
+                    # "South Korea",
+                    "United Kingdom",
+                    # "United States"
+                    ]
+removedCountries = ["China"]
+
+selectedCountriesBySize = randomCountriesBasedonSize(5, 
+								size=["A", "B", "C"],
+								listRemoval = removedCountries,
+								listAddition = []
+								)
+
+
+
 # countries = ["Malaysia", "Canada"]
-countries = randomCountriesBasedonSize(8, size=["B"])[1]
+countries = randomCountriesBasedonSize(3, size=["B"])[1]
 
 if "Malaysia" not in countries:
 	countries.append("Malaysia")
@@ -15,34 +34,7 @@ Countries=[]
 for country in countries: 
 	Countries.append(combineData(country))
 
-
-# df1 = combineData("Malaysia")
-# df2 = combineData("Canada")
-
-# df = 
-# print(df1.head(20))
-# print(df2.head(20))
-
-# Countries=[df1,df2]
-
-
 fig1 = go.Figure(
-   #  add_trace = [
-   #  	go.Scatter(
-			# x=df1.iloc[0:8]["Trailing7DayAccumPrev"], 
-			# y=df1.iloc[0:8]["Trailing7DayNewPrev"],
-			# name="Malaysia",
-			# marker_color='rgba(255, 0, 0, .8)',
-			# mode='markers'
-			# ),
-   #  	go.Scatter(
-			# x=df2.iloc[0:8]["Trailing7DayAccumPrev"], 
-			# y=df2.iloc[0:8]["Trailing7DayNewPrev"],
-			# name="Canada",
-   #  		marker_color='rgba(255, 255, 0, .8)',
-			# mode='markers'
-			# )
-   #  	],
     layout=go.Layout(
     	autosize=True,
     	height=750,
@@ -58,33 +50,30 @@ fig1 = go.Figure(
                           method="animate",
                           args=[None]
                           )])]
-    )
+    	)
 	)
 
+## Setting up the Day 7 stage 
 counter = 0
 for country in Countries: 
+	# lastAvailrow = 0
+ #    for i in pd.notna(df["Accum"]).tolist():
+ #    	if i: 
+	# 		lastAvailrow +=1
+	# 	else: 
+	# 		break
+
 	fig1.add_trace(go.Scatter(
 		x=country.iloc[0:8]["Trailing7DayAccumPrev"], 
 		y=country.iloc[0:8]["Trailing7DayNewPrev"],
-		name = countries[counter]
-		# mode = "lines"
+		name = countries[counter],
+		mode = "lines+text",
+		text = ["" for i in range(7)]+[countries[counter]],
+        textposition="bottom right"
 		)
 	)
 	counter = counter+1
 
-
-
-# fig1.add_trace(go.Scatter(
-# 	x=df1.iloc[0:8]["Trailing7DayAccumPrev"], 
-# 	y=df1.iloc[0:8]["Trailing7DayNewPrev"]))
-
-# fig1.add_trace(go.Scatter(
-# 	x=df2.iloc[0:8]["Trailing7DayAccumPrev"], 
-# 	y=df2.iloc[0:8]["Trailing7DayNewPrev"]))
-
-
-# start off data = Day 7 
-# fig1.data[7].visible = True
 
 def plotData(day, countryDataList = Countries, countryList = countries):
 	scatterList = []
@@ -93,14 +82,18 @@ def plotData(day, countryDataList = Countries, countryList = countries):
 		countryPlot = go.Scatter(
 			x=country.iloc[0:day]["Trailing7DayAccumPrev"],
 			y=country.iloc[0:day]["Trailing7DayNewPrev"],
-			name= countryList[counter]
-			# mode = "lines"
+			name= countryList[counter],
+			mode = "lines+text",
+			text = ["" for i in range(day-1)]+[countries[counter]],
+        	textposition="bottom right"
 			)
 		scatterList.append(countryPlot)
 		counter = counter +1
 
 	return scatterList
 
+
+## Creating frames for Days onward 
 frames = []
 
 for day in range(8, getDays()):
@@ -108,41 +101,10 @@ for day in range(8, getDays()):
 		data=plotData(day),
 		layout=go.Layout(
 			title_text="Day "+str(day+1)))
-		# go.Frame(data=[go.Scatter(x=[1, 2], y=[1, 2])],
-		# 	layout=go.Layout(title_text="Day 2")),
-		# go.Frame(data=[go.Scatter(x=[1, 4], y=[1, 4])],
-		# 	layout=go.Layout(title_text="Day 3")),
-		# go.Frame(data=[go.Scatter(x=[3, 4], y=[3, 4])],
-		# 	layout=go.Layout(title_text="Day 4"))
+		
 	frames.append(frame)
 
-## https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html#plotly.graph_objects.Figure.update_traces 
-
-
 fig1.frames = frames 
-
-# fig1.update_layout(
-#     autosize=True,
-#     height=750,
-# 	margin={"r":100,"t":80,"l":50,"b":80}, 
-#     showlegend=True,
-#     xaxis=dict(range=[0, 5], autorange=False),
-#     yaxis=dict(range=[0, 5], autorange=False),
-#     title="Day 1",
-#     updatemenus=[dict(
-# 		type="buttons",
-# 		buttons=[dict(
-# 			label="Play &#9658;",
-# 			method="animate",
-#             args=[None])])]
-
-    # legend_title='<b> Countries: </b>',
-    # legend_orientation="v"
-	# title='Countries: '+ ', '.join(map(str, selectedCountriesBySize)),
-    # xaxis_type="log", yaxis_type="log",
-    # xaxis_title='Accumulated Cases',
-    # yaxis_title='Daily New Cases'
-	# )
 
 import dash
 import dash_core_components as dcc
