@@ -17,7 +17,7 @@ removedCountries = ["China"]
 selectedCountriesBySize = randomCountriesBasedonSize(5, 
 								size=["A", "B", "C"],
 								listRemoval = removedCountries,
-								listAddition = []
+								listAddition = selectedCountries
 								)
 # selectedCountries = selectedCountriesBySize[0] ##chose Group A
 print (selectedCountriesBySize)
@@ -64,8 +64,8 @@ for group in selectedCountriesBySize:
             ))
         
         fig2.add_trace(go.Scatter(
-            x=df["Accum"]/pop, 
-            y=df["New"]/pop, 
+            x=df["Accum"]/pop*100000, 
+            y=df["New"]/pop*100000, 
             text = ["" for i in range(lastAvailrow-11)]+[country],
             textposition="bottom right",
             mode='markers+text',
@@ -80,8 +80,8 @@ for group in selectedCountriesBySize:
             ))
 
         fig3.add_trace(go.Scatter(
-            x=df["Trailing7DayAccumCases"]/pop, 
-            y=df["Trailing7DayNewCases"]/pop, 
+            x=df["Trailing7DayAccumCases"]/pop*100000, 
+            y=df["Trailing7DayNewCases"]/pop*100000, 
             text = ["" for i in range(lastAvailrow-11)]+[country],
             textposition="bottom right",
             mode='markers+text',
@@ -112,8 +112,8 @@ for group in selectedCountriesBySize:
             ))
 
         fig5.add_trace(go.Scatter(
-            x=df["Trailing7DayAccumCases"]/pop, 
-            y=df["Trailing7DayNewCases"]/pop, 
+            x=df["Trailing7DayAccumCases"]/pop*100000, 
+            y=df["Trailing7DayNewCases"]/pop*100000, 
             text = ["" for i in range(lastAvailrow-11)]+[country],
             textposition="bottom right",
             mode='lines+markers+text',
