@@ -4,8 +4,8 @@ import pandas as pd
 import random
 
 def extractData(): 
-	accumFile = "accumCasesFromDay12.csv"
-	newFile = "newCasesFromDay12.csv"
+	accumFile = "accumCasesFromDay1.csv"
+	newFile = "newCasesFromDay1.csv"
 
 	accumData = pd.read_csv(accumFile)
 	newcaseData = pd.read_csv(newFile)
