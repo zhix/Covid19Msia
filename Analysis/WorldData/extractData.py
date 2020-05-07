@@ -7,15 +7,9 @@ def extractData():
 	accumFile = "accumCasesFromDay12.csv"
 	newFile = "newCasesFromDay12.csv"
 
-
 	accumData = pd.read_csv(accumFile)
-	# print(accumData.head())
-
-
 	newcaseData = pd.read_csv(newFile)
-	# print(newcaseData.head())
-	# print(newcaseData.iloc[:,[10]])
-
+	
 	return accumData, newcaseData
 
 def getDays():
@@ -26,7 +20,7 @@ def getDays():
 	return numDays
 
 def extractCountriesPopulation():
-	populationFile = "populationRef4.csv" 
+	populationFile = "populationRef5.csv" 
 	populations = pd.read_csv(populationFile)
 	return populations
 
@@ -40,7 +34,7 @@ def getCodeDay1Date(country):
 def getStringency(country):
 	stringencyFile = "exportStringencyScore.csv" 
 	rawData = pd.read_csv(stringencyFile)
-	return rawData[country].tolist() 
+	return rawData[["Day since 100cases",country]].dropna()
 
 
 def getColor(anyInt):
@@ -61,7 +55,7 @@ def getColor(anyInt):
 
 def randomCountriesBasedonSize(numberOfCountries, 
 	size=["A","B","C","D"], 
-	randomOrNot = False, 
+	randomOrNot = True, 
 	listAddition = [], 
 	listRemoval = [],
 	listRequired = ["Malaysia"]):
@@ -73,10 +67,12 @@ def randomCountriesBasedonSize(numberOfCountries,
 	countriesB = df.loc[df["CountrySize"]=="B",["World"]]["World"].tolist()
 	countriesC = df.loc[df["CountrySize"]=="C",["World"]]["World"].tolist()
 	countriesD = df.loc[df["CountrySize"]=="D",["World"]]["World"].tolist()
+	
 	listOfA = []
 	listOfB = []
 	listOfC = []
 	listOfD = []
+	
 	for country in listAddition: 
 		# print(country)
 		if country in countriesA:
@@ -107,7 +103,7 @@ def randomCountriesBasedonSize(numberOfCountries,
 	if numberOfCountries > len(listOfD):
 		randSampleNumberD = random.sample(range(len(countriesD)), numberOfCountries-len(listOfD))
 		listOfD = listOfD + [countriesD[i] for i in randSampleNumberD]	
-		listOfD = list(dict.fromkeys(listOfD))																						   
+		listOfD = list(dict.fromkeys(listOfD))
 
 
 
@@ -119,11 +115,13 @@ def randomCountriesBasedonSize(numberOfCountries,
 		listOfC=[]
 	if "D" not in size: 
 		listOfD=[]
+
 	if randomOrNot == False: 
 		listOfA = ["New Zealand","Puerto Rico","Iceland","Ireland","Finland"]
 		listOfB = ["Singapore","Portugal","Belgium","Ecuador","United Arab Emirates"]
 		listOfC = ["Canada","Australia","Peru","Ghana","Saudi Arabia"]
 		listOfD = ["Japan","South Korea","Italy","China","United Kingdom"]
+	
 	for country in listRemoval:
 		if country in listOfA:
 			listOfA.remove(country)
@@ -138,39 +136,32 @@ def randomCountriesBasedonSize(numberOfCountries,
 def getPopulation(country): 
 	populationsDF = extractCountriesPopulation()
 	populationDF = populationsDF.loc[populationsDF["World"]==country, "Population"]
-	# print(populationDF)
+	# print(country, populationDF)
 	populationSTR = populationDF.iloc[0].replace(",","")
 	populationINT = int(populationSTR)
 	return populationINT
 
 def combineData(country): 
 	pop = getPopulation(country)
+	daySince = extractData()[0]["Day since 100cases"]
+
 	accumData = extractData()[0][country]
 	newData = extractData()[1][country]
 	t7newData = newData.rolling(window=7).mean()
 	t7accumData = accumData.rolling(window=7).mean()
 
-	t7newPrev = t7newData/pop
-	t7accumPrev = t7accumData/pop
+	df = pd.concat([daySince,accumData,newData,t7newData,t7accumData],axis=1)
+	df.columns = ["Day since 100cases","Accum","New","Trailing7DayNewCases", "Trailing7DayAccumCases"]
+	stringencyDF = getStringency(country)
 
+	print(stringencyDF)
+	print(stringencyDF.dtypes)
+	
+	df = pd.merge(df, stringencyDF, how='outer', on='Day since 100cases')
 
-	# print(accumData.head())
-	# print(newData.head())
-
-	df = pd.concat([accumData,newData,t7newData, t7accumData, t7newPrev, t7accumPrev],axis=1)
-	df.columns = ["Accum","New","Trailing7DayNewCases", "Trailing7DayAccumCases", "Trailing7DayNewPrev", "Trailing7DayAccumPrev"]
-	# print(df)
+	df.rename(columns={country:'Stringency'},inplace=True)
+	print ("PRINT - df XXXXXXXXX")
+	print (df)
+	print(df.dtypes)
 
 	return df
-
-# if __name__ == '__main__':
-# 	a = randomCountriesBasedonSize(5)
-# 	print(a)
-	# country1 = "Australia"
-	# country2 = "Malaysia"
-	# combineData(country2)
-# 	accumData = extractData()[0][country1]
-	# pop = getPopulation(country1)
-	# print(pop)
-
-# 	print(accumData/pop) 
