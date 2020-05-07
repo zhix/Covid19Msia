@@ -30,6 +30,18 @@ def extractCountriesPopulation():
 	populations = pd.read_csv(populationFile)
 	return populations
 
+def getCodeDay1Date(country):
+	df = extractCountriesPopulation()
+	countryCode = df.loc[df["World"]==country,["CountryCode"]]
+	day1Date = df.loc[df["World"]==country,["Date of Day 1"]]
+	return countryCode, day1Date
+
+
+def getStringency(country):
+	stringencyFile = "exportStringencyScore.csv" 
+	rawData = pd.read_csv(stringencyFile)
+	return rawData[country].tolist() 
+
 
 def getColor(anyInt):
 
@@ -91,6 +103,7 @@ def randomCountriesBasedonSize(numberOfCountries,
 		randSampleNumberC = random.sample(range(len(countriesC)), numberOfCountries-len(listOfC))
 		listOfC = listOfC + [countriesC[i] for i in randSampleNumberC]	
 		listOfC = list(dict.fromkeys(listOfC))
+
 	if numberOfCountries > len(listOfD):
 		randSampleNumberD = random.sample(range(len(countriesD)), numberOfCountries-len(listOfD))
 		listOfD = listOfD + [countriesD[i] for i in randSampleNumberD]	
