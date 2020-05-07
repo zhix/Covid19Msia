@@ -49,7 +49,7 @@ def getColor(anyInt):
 
 def randomCountriesBasedonSize(numberOfCountries, 
 	size=["A","B","C","D"], 
-	randomOrNot = True, 
+	randomOrNot = False, 
 	listAddition = [], 
 	listRemoval = [],
 	listRequired = ["Malaysia"]):
@@ -105,7 +105,7 @@ def randomCountriesBasedonSize(numberOfCountries,
 	if "C" not in size: 
 		listOfC=[]
 	if "D" not in size: 
-		listOfD=[
+		listOfD=[]
 	if randomOrNot == False: 
 		listOfA = ["New Zealand","Puerto Rico","Iceland","Ireland","Finland"]
 		listOfB = ["Singapore","Portugal","Belgium","Ecuador","United Arab Emirates"]
