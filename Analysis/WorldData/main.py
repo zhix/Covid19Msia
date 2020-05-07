@@ -15,9 +15,9 @@ selectedCountries = ["Australia",
 removedCountries = ["China"]
 
 selectedCountriesBySize = randomCountriesBasedonSize(5, 
-								size=["A", "B", "C"],
+								size=["A", "B", "C","D"],
 								listRemoval = removedCountries,
-								listAddition = selectedCountries
+								listAddition = []
 								)
 # selectedCountries = selectedCountriesBySize[0] ##chose Group A
 print (selectedCountriesBySize)
@@ -253,4 +253,4 @@ app.layout = html.Div(
 ])
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server()
