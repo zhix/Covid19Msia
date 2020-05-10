@@ -14,10 +14,11 @@ selectedCountries = ["Australia",
                     ]
 removedCountries = ["China"]
 
-selectedCountriesBySize = randomCountriesBasedonSize(5, 
-								size=["A", "B", "C","D"],
-								listRemoval = removedCountries,
-								listAddition = []
+selectedCountriesBySize = randomCountriesBasedonSize(10, 
+								# size=["A", "B", "C","D"],
+                                randomOrNot=False
+								# listRemoval = removedCountries,
+								# listAddition = []
 								)
 # selectedCountries = selectedCountriesBySize[0] ##chose Group A
 print (selectedCountriesBySize)
@@ -39,6 +40,9 @@ for group in selectedCountriesBySize:
     for country in group:
         pop = getPopulation(country)
         df = combineData(country)
+
+        # print(df)
+        
         lastAvailrow = 0
         for i in pd.notna(df["Accum"]).tolist():
         	if i: 
@@ -47,7 +51,13 @@ for group in selectedCountriesBySize:
         		break
         # print(country, lastAvailrow, len(df["Accum"]))
         # print(["" for i in range(43)]+[country])
-        
+
+        # stringency = getStringency(country).values[0] 
+        stringency = getStringency(country)[country].tolist()
+        # print(stringency)
+        markerSize = [i/100*50 for i in stringency] 
+        # print (country, lastAvailrow, len(markerSize))
+
         fig.add_trace(go.Scatter(
             x=df["Accum"], 
             y=df["New"], 
@@ -119,6 +129,7 @@ for group in selectedCountriesBySize:
             mode='lines+markers+text',
             marker=dict(
                         color=color,
+                        size = markerSize,
                         # colorscale="Viridis"
                         line = dict(
                             color = color,
@@ -252,5 +263,4 @@ app.layout = html.Div(
 
 ])
 
-if __name__ == '__main__':
-    app.run_server()
+app.run_server(debug=True)

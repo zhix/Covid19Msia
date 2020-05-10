@@ -154,14 +154,14 @@ def combineData(country):
 	df.columns = ["Day since 100cases","Accum","New","Trailing7DayNewCases", "Trailing7DayAccumCases"]
 	stringencyDF = getStringency(country)
 
-	print(stringencyDF)
-	print(stringencyDF.dtypes)
+	# print(stringencyDF)
+	# print(stringencyDF.dtypes)
 	
 	df = pd.merge(df, stringencyDF, how='outer', on='Day since 100cases')
 
 	df.rename(columns={country:'Stringency'},inplace=True)
-	print ("PRINT - df XXXXXXXXX")
-	print (df)
-	print(df.dtypes)
+	# print ("PRINT - df XXXXXXXXX")
+	# print (df)
+	# print(df.dtypes)
 
 	return df
